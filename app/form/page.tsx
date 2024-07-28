@@ -275,7 +275,7 @@ export default function Page() {
   //   setErrors(errors);
   // }, [data, json]);
 
-  if (!json || !localStorage) return redirect("/create-form");
+  if (!json) return redirect("/create-form");
 
   return (
     <div className="py-16 w-full flex justify-center items-center">
