@@ -33,11 +33,6 @@ export default function Page() {
   const [data, setData] = useState<{ [key: string]: string | string[] }>({});
   const [errors, setErrors] = useState<{ [key: string]: string }>();
 
-  useEffect(() => {
-    setJson(JSON.parse(localStorage.getItem("form")!));
-    setData(JSON.parse(localStorage.getItem("draft")!));
-  }, []);
-
   const sections = json?.fields.reduce(
     (
       acc: { [key: number]: { section_name: string; fields: FormField[] } },
@@ -275,15 +270,20 @@ export default function Page() {
   //   setErrors(errors);
   // }, [data, json]);
 
-  if (!json) return redirect("/");
+  useEffect(() => {
+    if (!localStorage.getItem("form")) redirect("/");
+    setJson(JSON.parse(localStorage.getItem("form")!));
+    setData(JSON.parse(localStorage.getItem("draft")!));
+  }, []);
 
+  if (!json) return <></>;
   return (
     <div className="py-16 w-full flex justify-center items-center">
       <Card className="max-w-2xl w-full">
         <form onSubmit={handleSubmit}>
           <CardHeader>
             <CardTitle className="text-3xl font-bold text-center">
-              {json.form_header}
+              {json?.form_header}
             </CardTitle>
           </CardHeader>
           <hr />
