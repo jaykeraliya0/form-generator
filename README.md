@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Thought Process for Dynamic Form Generation
 
-## Getting Started
+## JSON Handling
 
-First, run the development server:
+- Created an initial form for JSON file upload
+- Implemented JSON validation to ensure the uploaded file matches the expected structure
+- Stored valid JSON in localStorage for persistence and easy access
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Dynamic Form Generation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Designed a system to parse the JSON and generate form elements dynamically
+- Grouped fields by sections to maintain logical structure
+- Utilized React components for different field types (text, radio, select, etc.)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Form State Management
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Used React state to manage form inputs
+- Implemented draft feature using localStorage to preserve user input across sessions
 
-## Learn More
+## Validation
 
-To learn more about Next.js, take a look at the following resources:
+- Created a validation system based on the rules specified in the JSON
+- Applied validations dynamically to each field
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Considerations
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Ensured the solution could handle various JSON structures following the given format
+- Focused on creating a scalable and maintainable codebase
+- Prioritized user experience with clear error messages and intuitive form layout
 
-## Deploy on Vercel
+## Note on Database Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Due to time constraints, this implementation does not utilize a database for data persistence. Instead, it relies on localStorage for storing the JSON configuration and draft form data. In a production environment, integrating a database would provide more robust data management and allow for server-side processing and storage.
