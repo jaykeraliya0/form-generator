@@ -30,7 +30,7 @@ export default function Page() {
 
       if (!isForm(form)) throw new Error("Invalid JSON");
 
-      localStorage.setItem("form", JSON.stringify(form));
+      if (localStorage) localStorage.setItem("form", JSON.stringify(form));
 
       toast.dismiss();
       toast.success("Form created successfully");

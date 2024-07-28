@@ -24,18 +24,21 @@ import { Textarea } from "@/components/ui/textarea";
 import { validateForm } from "@/lib/validate";
 import { Form, FormField } from "@/types/form";
 import { redirect } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 export default function Page() {
-  const [json] = useState<Form>(JSON.parse(localStorage.getItem("form")!));
+  const [json, setJson] = useState<Form>();
 
-  const [data, setData] = useState<{ [key: string]: string | string[] }>(
-    JSON.parse(localStorage.getItem("draft")!)
-  );
+  const [data, setData] = useState<{ [key: string]: string | string[] }>({});
   const [errors, setErrors] = useState<{ [key: string]: string }>();
 
-  const sections = json.fields.reduce(
+  useEffect(() => {
+    setJson(JSON.parse(localStorage.getItem("form")!));
+    setData(JSON.parse(localStorage.getItem("draft")!));
+  }, []);
+
+  const sections = json?.fields.reduce(
     (
       acc: { [key: number]: { section_name: string; fields: FormField[] } },
       field
@@ -243,7 +246,7 @@ export default function Page() {
     try {
       await new Promise((resolve) => setTimeout(resolve, 400));
 
-      const errors = validateForm(data, json);
+      const errors = validateForm(data, json!);
       setErrors(errors);
       console.log(errors);
       if (Object.keys(errors || {}).length > 0)
@@ -251,7 +254,7 @@ export default function Page() {
 
       console.log(data);
 
-      localStorage.removeItem("draft");
+      if (localStorage) localStorage.removeItem("draft");
       setData({});
       toast.dismiss();
       toast.success("Form submitted successfully");
@@ -272,7 +275,7 @@ export default function Page() {
   //   setErrors(errors);
   // }, [data, json]);
 
-  if (!json) return redirect("/create-form");
+  if (!json || !localStorage) return redirect("/create-form");
 
   return (
     <div className="py-16 w-full flex justify-center items-center">
@@ -285,7 +288,7 @@ export default function Page() {
           </CardHeader>
           <hr />
           <CardContent>
-            {Object.values(sections).map((section) => (
+            {Object.values(sections!).map((section) => (
               <div
                 className="grid w-full items-center gap-4 px-7 my-5"
                 key={section.section_name}
