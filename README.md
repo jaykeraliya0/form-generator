@@ -31,3 +31,5 @@
 ## Note on Database Usage
 
 Due to time constraints, this implementation does not utilize a database for data persistence. Instead, it relies on localStorage for storing the JSON configuration and draft form data. In a production environment, integrating a database would provide more robust data management and allow for server-side processing and storage.
+
+- to test this test json files are provided in the test folder

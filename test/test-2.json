@@ -1,0 +1,86 @@
+{
+  "form_header": "Logistics Information Form",
+  "fields": [
+    {
+      "section": 1,
+      "section_name": "Shipment Details",
+      "field_id": "tracking_number",
+      "field_label": "Tracking Number",
+      "field_type": "text",
+      "validations": ["required", "alphanumeric"],
+      "info": "Tracking number of the shipment"
+    },
+    {
+      "section": 1,
+      "section_name": "Shipment Details",
+      "field_id": "shipment_date",
+      "field_label": "Shipment Date",
+      "field_type": "text",
+      "validations": ["required", "date"],
+      "info": "Date of shipment"
+    },
+    {
+      "section": 2,
+      "section_name": "Recipient Information",
+      "field_id": "recipient_name",
+      "field_label": "Recipient Name",
+      "field_type": "text",
+      "validations": ["required", "alphabets"],
+      "info": "Full name of the recipient"
+    },
+    {
+      "section": 2,
+      "section_name": "Recipient Information",
+      "field_id": "delivery_address",
+      "field_label": "Delivery Address",
+      "field_type": "textarea",
+      "validations": ["required"],
+      "info": "Delivery address of the recipient"
+    },
+    {
+      "section": 3,
+      "section_name": "Status Update",
+      "field_id": "status",
+      "field_label": "Status",
+      "field_type": "select",
+      "field_options": [
+        {
+          "value": "in_transit",
+          "label": "In Transit"
+        },
+        {
+          "value": "delivered",
+          "label": "Delivered"
+        },
+        {
+          "value": "dispatched",
+          "label": "Dispatched"
+        },
+        {
+          "value": "undelivered",
+          "label": "Undelivered"
+        }
+      ],
+      "validations": ["required"],
+      "info": "Select the current status of the shipment"
+    },
+    {
+      "section": 3,
+      "section_name": "Status Update",
+      "field_id": "update_comments",
+      "field_label": "Update Comments",
+      "field_type": "textarea",
+      "validations": [],
+      "info": "Provide any additional comments or updates"
+    },
+    {
+      "section": 3,
+      "section_name": "Status Update",
+      "field_id": "update_comments",
+      "field_label": "Delivery Comments",
+      "field_type": "textarea",
+      "validations": [],
+      "info": "Provide any additional comments or updates"
+    }
+  ]
+}

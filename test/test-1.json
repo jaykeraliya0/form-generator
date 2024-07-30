@@ -1,0 +1,63 @@
+{
+  "form_header": "Sales Information Form",
+  "fields": [
+    {
+      "section": 1,
+      "section_name": "Customer Details",
+      "field_id": "customer_name",
+      "field_label": "Customer Name",
+      "field_type": "text",
+      "validations": ["required", "alphabets"],
+      "info": "Full name of the customer"
+    },
+    {
+      "section": 1,
+      "section_name": "Customer Details",
+      "field_id": "customer_email",
+      "field_label": "Customer Email",
+      "field_type": "text",
+      "validations": ["required", "email"],
+      "info": "Email address of the customer"
+    },
+    {
+      "section": 2,
+      "section_name": "Product Information",
+      "field_id": "product_name",
+      "field_label": "Product Name",
+      "field_type": "text",
+      "validations": ["required"],
+      "info": "Name of the product being sold"
+    },
+    {
+      "section": 2,
+      "section_name": "Product Information",
+      "field_id": "quantity",
+      "field_label": "Quantity",
+      "field_type": "number",
+      "validations": ["required", "positive_number"],
+      "info": "Quantity of the product"
+    },
+    {
+      "section": 3,
+      "section_name": "Payment Details",
+      "field_id": "total_amount",
+      "field_label": "Total Amount",
+      "field_type": "text",
+      "validations": ["required", "currency"],
+      "info": "Total amount for the transaction"
+    },
+    {
+      "section": 3,
+      "section_name": "Payment Details",
+      "field_id": "payment_method",
+      "field_label": "Payment Method",
+      "field_type": "checkbox",
+      "field_options": [
+        { "value": "credit_card", "label": "Credit Card" },
+        { "value": "cash", "label": "Cash" }
+      ],
+      "validations": ["required"],
+      "info": "Select the payment method"
+    }
+  ]
+}

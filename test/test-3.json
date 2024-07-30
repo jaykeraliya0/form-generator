@@ -1,0 +1,59 @@
+{
+  "form_header": "Tax Filing Information",
+  "fields": [
+    {
+      "section": 1,
+      "section_name": "Personal Information",
+      "field_id": "full_name",
+      "field_label": "Full Name",
+      "field_type": "text",
+      "validations": ["required", "alphabets"],
+      "info": "Your full name"
+    },
+    {
+      "section": 1,
+      "section_name": "Personal Information",
+      "field_id": "social_security_number",
+      "field_label": "Social Security Number",
+      "field_type": "text",
+      "validations": ["required", "numeric"],
+      "info": "Your social security number"
+    },
+    {
+      "section": 2,
+      "section_name": "Income Information",
+      "field_id": "annual_income",
+      "field_label": "Annual Income",
+      "field_type": "number",
+      "validations": ["required", "positive"],
+      "info": "Your annual income"
+    },
+    {
+      "section": 2,
+      "section_name": "Income Information",
+      "field_id": "tax_withheld",
+      "field_label": "Tax Withheld",
+      "field_type": "number",
+      "validations": ["required", "positive"],
+      "info": "Amount of tax withheld"
+    },
+    {
+      "section": 3,
+      "section_name": "Deductions",
+      "field_id": "mortgage_interest",
+      "field_label": "Mortgage Interest",
+      "field_type": "number",
+      "validations": ["required", "positive"],
+      "info": "Amount of mortgage interest paid"
+    },
+    {
+      "section": 3,
+      "section_name": "Deductions",
+      "field_id": "charitable_contributions",
+      "field_label": "Charitable Contributions",
+      "field_type": "number",
+      "validations": ["required", "positive"],
+      "info": "Amount of charitable contributions made"
+    }
+  ]
+}
